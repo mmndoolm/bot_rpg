@@ -3,7 +3,10 @@ const qrcode = require('qrcode-terminal');
 const fs = require('fs');
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    }
 });
 
 const ARCHIVO_USUARIOS = './db_usuarios.json';
