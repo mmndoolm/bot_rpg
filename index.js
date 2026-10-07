@@ -1219,16 +1219,20 @@ client.on('message', async (message) => {
         }
     }
 });
-
-client.initialize();
-// Genera un código numérico de 8 dígitos para vincular sin QR
-setTimeout(async () => {
+client.on('qr', async (qr) => {
     try {
-        const pairingCode = await client.requestPairingCode('5212322456556'); // Reemplaza con tu número real
+        // Solicita el código de emparejamiento numérico de 8 dígitos
+        const pairingCode = await client.requestPairingCode('5212291234567'); 
         console.log('========================================');
         console.log('TU CÓDIGO DE EMPAREJAMIENTO ES:', pairingCode);
         console.log('========================================');
     } catch (error) {
         console.log('Error al solicitar el código:', error);
     }
-}, 6000);
+});
+
+client.on('ready', () => {
+    console.log('¡Bot conectado y listo!');
+});
+
+client.initialize();
