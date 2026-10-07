@@ -1232,4 +1232,3 @@ setTimeout(async () => {
         console.log('Error al solicitar el código:', error);
     }
 }, 6000);
-
