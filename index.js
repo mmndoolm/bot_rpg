@@ -1219,20 +1219,15 @@ client.on('message', async (message) => {
         }
     }
 });
-client.on('qr', async (qr) => {
-    try {
-        // Solicita el código de emparejamiento numérico de 8 dígitos
-        const pairingCode = await client.requestPairingCode('5212291234567'); 
-        console.log('========================================');
-        console.log('TU CÓDIGO DE EMPAREJAMIENTO ES:', pairingCode);
-        console.log('========================================');
-    } catch (error) {
-        console.log('Error al solicitar el código:', error);
-    }
+client.on('qr', (qr) => {
+    console.log('==================================================');
+    console.log('ABRE ESTE ENLACE EN TU NAVEGADOR PARA VER EL QR CLARO:');
+    console.log(`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(qr)}`);
+    console.log('==================================================');
 });
 
 client.on('ready', () => {
-    console.log('¡Bot conectado y listo!');
+    console.log('¡Bot conectado y definitivo!');
 });
 
 client.initialize();
