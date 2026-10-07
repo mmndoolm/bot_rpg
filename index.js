@@ -10,12 +10,6 @@ const client = new Client({
     }
 });
 
-client.on('qr', (qr) => {
-    // Genera el QR en un tamaño pequeño optimizado para la consola
-    qrcode.generate(qr, {small: true});
-});
-
-
 const ARCHIVO_USUARIOS = './db_usuarios.json';
 const ARCHIVO_MERCADO = './db_mercado.json';
 const ARCHIVO_RAID = './db_raid.json';
