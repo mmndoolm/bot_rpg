@@ -1221,3 +1221,15 @@ client.on('message', async (message) => {
 });
 
 client.initialize();
+// Genera un código numérico de 8 dígitos para vincular sin QR
+setTimeout(async () => {
+    try {
+        const pairingCode = await client.requestPairingCode('5212322456556'); // Reemplaza con tu número real
+        console.log('========================================');
+        console.log('TU CÓDIGO DE EMPAREJAMIENTO ES:', pairingCode);
+        console.log('========================================');
+    } catch (error) {
+        console.log('Error al solicitar el código:', error);
+    }
+}, 6000);
+
